@@ -9,7 +9,7 @@
 #define PALETTE_RGB565 1
 #define PALETTE_RGB5A3 2
 
-void btiDecodeI4(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeI4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -50,7 +50,7 @@ void btiDecodeI4(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
     }
 }
 
-void btiDecodeI8(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeI8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -83,7 +83,7 @@ void btiDecodeI8(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
     }
 }
 
-void btiDecodeIA4(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeIA4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -119,7 +119,7 @@ void btiDecodeIA4(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
     }
 }
 
-void btiDecodeIA8(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeIA8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -166,7 +166,7 @@ uint32_t RGB565toRGBA8(uint16_t data) {
     return output;
 }
 
-void btiDecodeRGB565(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeRGB565(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -236,7 +236,7 @@ uint32_t RGB5A3toRGBA8(uint16_t data) {
     return output;
 }
 
-void btiDecodeRGB5A3(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeRGB5A3(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -270,7 +270,7 @@ void btiDecodeRGB5A3(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst
     }
 }
 
-void btiDecodeRGBA32(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeRGBA32(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
@@ -339,7 +339,7 @@ void UnpackPixelFromPalette(uint8_t* palette, uint8_t paletteFormat, uint32_t in
     }
 }
 
-void btiDecodeC4(uint8_t* src, uint16_t width, uint16_t height, uint8_t* palette, uint8_t paletteFormat, uint8_t* dst) {
+void btiDecodeC4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, uint8_t* palette, uint8_t paletteFormat) {
     if (src == NULL || palette == NULL || dst == NULL)
         return;
 
@@ -387,7 +387,7 @@ void btiDecodeC4(uint8_t* src, uint16_t width, uint16_t height, uint8_t* palette
     free(paletteIndexBuffer);
 }
 
-void btiDecodeC8(uint8_t* src, uint16_t width, uint16_t height, uint8_t* palette, uint8_t paletteFormat, uint8_t* dst) {
+void btiDecodeC8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, uint8_t* palette, uint8_t paletteFormat) {
     if (src == NULL || palette == NULL || dst == NULL)
         return;
 
@@ -491,7 +491,7 @@ uint8_t* DecodeCMPRSubBlock(uint8_t* src, uint32_t* offset) {
     return data;
 }
 
-void btiDecodeCMPR(uint8_t* src, uint16_t width, uint16_t height, uint8_t* dst) {
+void btiDecodeCMPR(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
 
