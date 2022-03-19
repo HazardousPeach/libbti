@@ -1,5 +1,6 @@
 #include "decode.h"
 
+#include <string.h>
 #include <stdlib.h>
 
 #define BytesToShort(a, b) (a << 8 | b)
@@ -18,11 +19,11 @@ void btiDecodeI4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     uint32_t numBlocksH = height / 8;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 8; pixelY++) {
-                for (int pixelX = 0; pixelX < 8; pixelX += 2) {
+            for (uint32_t pixelY = 0; pixelY < 8; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 8; pixelX += 2) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 8 + pixelX >= width) || (blockY * 8 + pixelY >= height))
                         continue;
@@ -59,11 +60,11 @@ void btiDecodeI8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     uint32_t numBlocksH = height / 4;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 8; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 8; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 8 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -92,11 +93,11 @@ void btiDecodeIA4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     uint32_t numBlocksH = height / 4;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 8; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 8; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 8 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -128,11 +129,11 @@ void btiDecodeIA8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     uint32_t numBlocksH = height / 4;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 4; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 4; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 4 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -175,11 +176,11 @@ void btiDecodeRGB565(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height
     uint32_t numBlocksH = height / 4;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 4; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 4; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 4 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -245,11 +246,11 @@ void btiDecodeRGB5A3(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height
     uint32_t numBlocksH = height / 4;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 4; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 4; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 4 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -279,13 +280,13 @@ void btiDecodeRGBA32(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height
     uint32_t numBlocksH = height / 4;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
 
             // Alpha/red values for current pixel
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 4; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 4; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 4 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -298,8 +299,8 @@ void btiDecodeRGBA32(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height
             }
 
             // Green/blue values for current pixel
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 4; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 4; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 4 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -314,7 +315,7 @@ void btiDecodeRGBA32(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height
     }
 }
 
-void UnpackPixelFromPalette(uint8_t* palette, uint8_t paletteFormat, uint32_t index, uint32_t offset, uint8_t* dst) {
+void UnpackPixelFromPalette(uint8_t* palette, uint8_t paletteFormat, uint8_t index, uint32_t offset, uint8_t* dst) {
     if (paletteFormat == PALETTE_IA8) {
         dst[offset] = palette[2 * index + 1];
         dst[offset + 1] = palette[2 * index];
@@ -349,13 +350,15 @@ void btiDecodeC4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, ui
 
     // Holds the palette indices for each pixel in the image.
     uint8_t* paletteIndexBuffer = malloc(width * height * 8);
+    if (paletteIndexBuffer == NULL)
+        return;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 8; pixelY++) {
-                for (int pixelX = 0; pixelX < 8; pixelX += 2) {
+            for (uint32_t pixelY = 0; pixelY < 8; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 8; pixelX += 2) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 8 + pixelX >= width) || (blockY * 8 + pixelY >= height))
                         continue;
@@ -377,8 +380,8 @@ void btiDecodeC4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, ui
 
     uint32_t pixelSize = paletteFormat == PALETTE_IA8 ? 2 : 4;
     uint32_t destOffset = 0;
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
+    for (uint32_t y = 0; y < height; y++) {
+        for (uint32_t x = 0; x < width; x++) {
             UnpackPixelFromPalette(palette, paletteFormat, paletteIndexBuffer[y * width + x], destOffset, dst);
             destOffset += pixelSize;
         }
@@ -397,13 +400,15 @@ void btiDecodeC8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, ui
 
     // Holds the palette indices for each pixel in the image.
     uint8_t* paletteIndexBuffer = malloc(width * height * 8);
+    if (paletteIndexBuffer == NULL)
+        return;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Iterate the pixels in the current block
-            for (int pixelY = 0; pixelY < 4; pixelY++) {
-                for (int pixelX = 0; pixelX < 8; pixelX++) {
+            for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+                for (uint32_t pixelX = 0; pixelX < 8; pixelX++) {
                     // Bounds check to ensure the pixel is within the image.
                     if ((blockX * 8 + pixelX >= width) || (blockY * 4 + pixelY >= height))
                         continue;
@@ -419,8 +424,8 @@ void btiDecodeC8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, ui
 
     uint32_t pixelSize = paletteFormat == PALETTE_IA8 ? 2 : 4;
     uint32_t destOffset = 0;
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
+    for (uint32_t y = 0; y < height; y++) {
+        for (uint32_t x = 0; x < width; x++) {
             UnpackPixelFromPalette(palette, paletteFormat, paletteIndexBuffer[y * width + x], destOffset, dst);
             destOffset += pixelSize;
         }
@@ -431,12 +436,15 @@ void btiDecodeC8(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height, ui
 
 uint8_t* DecodeCMPRSubBlock(uint8_t* src, uint32_t* offset) {
     uint8_t* data = malloc(4 * 4 * 4);
+    
+    if (data == NULL)
+        return NULL;
 
     uint16_t color0 = BytesToShort((*offset)++, (*offset)++);
     uint16_t color1 = BytesToShort((*offset)++, (*offset)++);
     uint32_t bits = BytesToInt((*offset)++, (*offset)++, (*offset)++, (*offset)++);
 
-    uint32_t colorTable[4];
+    uint32_t colorTable[4] = {0, 0, 0, 0};
     colorTable[0] = RGB565toRGBA8(color0);
     colorTable[1] = RGB565toRGBA8(color1);
 
@@ -474,8 +482,8 @@ uint8_t* DecodeCMPRSubBlock(uint8_t* src, uint32_t* offset) {
         colorTable[3] |= 0x00;
     }
 
-    for (int pixelY = 0; pixelY < 4; pixelY++) {
-        for (int pixelX = 0; pixelX < 4; pixelX++) {
+    for (uint32_t pixelY = 0; pixelY < 4; pixelY++) {
+        for (uint32_t pixelX = 0; pixelX < 4; pixelX++) {
             uint32_t i = pixelY * 4 + pixelX;
             uint32_t bitOffset = (15 - i) * 2;
             uint32_t di = i * 4;
@@ -500,17 +508,19 @@ void btiDecodeCMPR(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) 
     uint32_t numBlocksH = (height + 7) / 8;
 
     // Iterate the blocks in the image
-    for (int blockY = 0; blockY < numBlocksH; blockY++) {
-        for (int blockX = 0; blockX < numBlocksW; blockX++) {
+    for (uint32_t blockY = 0; blockY < numBlocksH; blockY++) {
+        for (uint32_t blockX = 0; blockX < numBlocksW; blockX++) {
             // Each block has a set of 2x2 sub-blocks.
-            for (int subBlockY = 0; subBlockY < 2; subBlockY++) {
-                for (int subBlockX = 0; subBlockX < 2; subBlockX++) {
+            for (uint32_t subBlockY = 0; subBlockY < 2; subBlockY++) {
+                for (uint32_t subBlockX = 0; subBlockX < 2; subBlockX++) {
                     uint32_t subBlockWidth = max(0, min(4, width - (subBlockX * 4 + blockX * 8)));
                     uint32_t subBlockHeight = max(0, min(4, height - (subBlockY * 4 + blockY * 8)));
 
                     uint8_t* subBlockData = DecodeCMPRSubBlock(src, &offset);
+                    if (subBlockData == NULL)
+                        return;
 
-                    for (int pixelY = 0; pixelY < subBlockHeight; pixelY++) {
+                    for (uint32_t pixelY = 0; pixelY < subBlockHeight; pixelY++) {
                         uint32_t destX = blockX * 8 + subBlockX * 4;
                         uint32_t destY = blockY * 8 + (subBlockY * 4) + pixelY;
 
