@@ -1,6 +1,4 @@
 #include "decode.h"
-
-#include <string.h>
 #include <stdlib.h>
 
 #define BytesToShort(a, b) (a << 8 | b)
