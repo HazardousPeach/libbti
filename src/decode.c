@@ -1,5 +1,6 @@
 #include "decode.h"
 #include <stdlib.h>
+#include <string.h>
 
 #define BytesToShort(a, b) (a << 8 | b)
 #define BytesToInt(a, b, c, d) (a << 24 | b << 16 | c << 8 | d)
