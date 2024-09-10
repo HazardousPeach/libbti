@@ -9,9 +9,12 @@
 #define PALETTE_RGB565 1
 #define PALETTE_RGB5A3 2
 
-inline int max(int, int);
-inline int min(int, int);
-
+inline int max(int x, int y){
+    return x < y ? y : x;
+}
+inline int min(int x, int y){
+    return x < y ? x : y;
+}
 void btiDecodeI4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
@@ -538,11 +541,4 @@ void btiDecodeCMPR(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) 
             }
         }
     }
-}
-
-inline int max(int x, int y){
-    return x < y ? y : x;
-}
-inline int min(int x, int y){
-    return x < y ? x : y;
 }
