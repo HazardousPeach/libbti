@@ -9,12 +9,14 @@
 #define PALETTE_RGB565 1
 #define PALETTE_RGB5A3 2
 
+#if defined(__linux__)
 inline int max(int x, int y){
     return x < y ? y : x;
 }
 inline int min(int x, int y){
     return x < y ? x : y;
 }
+#endif
 void btiDecodeI4(uint8_t* dst, uint8_t* src, uint16_t width, uint16_t height) {
     if (src == NULL || dst == NULL)
         return;
